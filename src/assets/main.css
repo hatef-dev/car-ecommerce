@@ -1,35 +1,29 @@
-@import './base.css';
+@import "tailwindcss";
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+@font-face {
+  font-family: "Yekan Bakh FaNum";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./YekanBakhFaNum-VF.woff2") format("woff2"),
+       url("./YekanBakhFaNum-VF.woff") format("woff");
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+@font-face {
+  font-family: "Yekan Bakh NoEn";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./YekanBakhNoEnVF.woff2") format("woff2"),
+       url("./YekanBakhNoEnVF.woff") format("woff");
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+@theme {
+  --font-sans: "Yekan Bakh FaNum", system-ui, sans-serif;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+body {
+  font-feature-settings: "ss01";
+  -webkit-font-feature-settings: "ss01";
+  -moz-font-feature-settings: "ss01";
 }
