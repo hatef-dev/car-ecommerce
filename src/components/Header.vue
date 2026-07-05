@@ -376,7 +376,7 @@
     </div>
     <!-- Mobile Menu -->
     <div class="sm:hidden container relative">
-      <ul class="flex flex-wrap items-center gap-x-2 py-4">
+      <ul class="flex flex-wrap items-center gap-x-2 py-4 gap-y-4">
         <li v-for="item in menuItems" :key="item.link" class="relative">
           <a :href="item.link" class="text-gray-700 px-3 py-1 rounded-lg text-sm">
             {{ item.title }}
