@@ -39,7 +39,13 @@
         </div>
       </div>
     </div>
-    <div class="container relative">
+    <div
+      class="container relative"
+      @mouseleave="
+        activeMenuItem = null;
+        activeSidebarItem = null;
+      "
+    >
       <ul class="flex items-center gap-x-1 py-4">
         <li
           v-for="item in menuItems"
@@ -49,7 +55,7 @@
         >
           <a
             :href="item.link"
-            class="text-gray-700 hover:text-blue-600 px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-x-2 font-medium text-sm"
+            class="text-gray-700 px-4 py-2 rounded-lg transition-all duration-300 flex items-center gap-x-2 font-medium text-sm"
           >
             {{ item.title }}
             <ChevronDownIcon
@@ -60,7 +66,7 @@
           <!-- Dropdown for first level children -->
           <div
             v-if="item.children"
-            class="dropdownItems bg-gradient-to-br from-white to-[#FCFCFC] rounded-b-3xl shadow-2xl shadow-black/5 overflow-hidden z-50 absolute top-full -right-4 w-[1100px] h-[420px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 ease-out transform translate-y-2 group-hover:translate-y-0"
+            class="dropdownItems bg-gradient-to-br from-white to-[#FCFCFC] rounded-b-3xl shadow-2xl shadow-black/5 overflow-hidden z-50 absolute top-full -right-4 w-[1100px] h-[420px] group-hover:opacity-100 group-hover:visible transition-all duration-500 ease-out transform translate-y-2 group-hover:translate-y-0"
           >
             <nav class="relative h-full flex w-full">
               <!-- Sidebar -->
@@ -76,36 +82,22 @@
                     :key="child.link"
                     class="group relative flex items-center gap-x-3 justify-between py-3 px-3 rounded-xl transition-all duration-300 ease-in-out text-[#403F4C] cursor-pointer"
                     :class="
-                      activeSidebarItem?.link === child.link
-                        ? 'bg-gradient-to-r from-blue-50 to-indigo-50'
-                        : 'hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50'
+                      activeSidebarItem?.link === child.link ? 'bg-gray-100/80' : 'hover:bg-gray-50'
                     "
                     @mouseenter="activeSidebarItem = child"
                   >
                     <a :href="child.link" class="flex-1 font-medium text-sm">{{ child.title }}</a>
                     <!-- Left arrow for RTL -->
-                    <svg
+                    <ChevronLeftIcon
                       v-if="child.children"
-                      class="w-4 h-4 transition-all duration-300 ease-in-out"
+                      class="w-4 h-4 transition-all duration-300"
                       :class="
                         activeSidebarItem?.link === child.link
-                          ? 'text-blue-600'
-                          : 'text-gray-400 group-hover:text-blue-600'
+                          ? 'opacity-100'
+                          : 'opacity-0 text-gray-400 group-hover:opacity-100'
                       "
-                      viewBox="0 0 9 8"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M5.36653 7.76076C5.29488 7.82838 5.20004 7.86596 5.10153 7.86576C5.00338 7.86662 4.90926 7.8268 4.84153 7.75576C4.77005 7.68612 4.72974 7.59056 4.72974 7.49076C4.72974 7.39097 4.77005 7.29541 4.84153 7.22576L7.69156 4.37573H1.08142C0.874308 4.37573 0.706424 4.20784 0.706424 4.00073C0.706424 3.79363 0.874308 3.62573 1.08142 3.62573H7.69265L4.83653 0.760764C4.76505 0.69112 4.72474 0.595558 4.72474 0.495764C4.72474 0.39597 4.76505 0.300408 4.83653 0.230764C4.98294 0.0845371 5.22012 0.0845371 5.36653 0.230764L8.86653 3.73076C9.01275 3.87717 9.01275 4.11435 8.86653 4.26076L5.36653 7.76076Z"
-                        fill="currentColor"
-                      ></path>
-                    </svg>
+                    />
                     <!-- Active indicator -->
-                    <div
-                      class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-blue-500 to-indigo-600 rounded-r-full transition-all duration-300"
-                      :class="activeSidebarItem?.link === child.link ? 'opacity-100' : 'opacity-0'"
-                    ></div>
                   </li>
                 </ul>
               </div>
@@ -275,6 +267,7 @@ import { ArchiveBoxIcon } from "@heroicons/vue/24/solid";
 import { HeartIcon } from "@heroicons/vue/24/outline";
 import { UserIcon } from "@heroicons/vue/24/outline";
 import { ChevronDownIcon } from "@heroicons/vue/24/outline";
+import { ChevronLeftIcon } from "@heroicons/vue/24/outline";
 export default {
   name: "Header",
   components: {
@@ -283,11 +276,12 @@ export default {
     HeartIcon,
     UserIcon,
     ChevronDownIcon,
+    ChevronLeftIcon,
   },
   data() {
     return {
-      activeMenuItem: null,
-      activeSidebarItem: null,
+      activeMenuItem: true,
+      activeSidebarItem: true,
       menuItems: [
         {
           title: "خودروها",
