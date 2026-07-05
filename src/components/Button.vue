@@ -4,7 +4,13 @@
     <canvas ref="canvas" class="confetti-canvas"></canvas>
 
     <!-- The actual button -->
-    <button ref="button" class="cbtn cbtn-dark" :data-colors="colors" @click="burst">
+    <button
+      ref="button"
+      class="cbtn cbtn-dark border border-white"
+      :data-colors="colors"
+      :class="`cbtn-${type}`"
+      @click="burst"
+    >
       <slot></slot>
     </button>
   </div>
@@ -18,6 +24,10 @@ export default {
     colors: {
       type: String,
       default: "#fff,#ccc,#999,#555",
+    },
+    type: {
+      type: String,
+      default: "dark", // "dark" | "outline"
     },
   },
 
@@ -319,7 +329,7 @@ export default {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 1;
 }
 
 .cbtn {
@@ -333,7 +343,7 @@ export default {
   border-radius: 999px;
   cursor: pointer;
   transition: 0.2s;
-  z-index: 10000;
+  z-index: 2;
 }
 
 .cbtn:hover {
@@ -345,8 +355,52 @@ export default {
 }
 
 .cbtn-dark {
-  background: #1a1714;
+  background: linear-gradient(180deg, #2a2521, #1a1714);
   color: white;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.15) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.4) inset,
+    0 6px 14px rgba(0, 0, 0, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.cbtn-dark:hover {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.18) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.4) inset,
+    0 8px 18px rgba(0, 0, 0, 0.55),
+    0 3px 5px rgba(0, 0, 0, 0.6);
+}
+
+.cbtn-dark:active {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.3) inset,
+    0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.cbtn-outline {
+  background: #fff;
+  color: #1a1714;
+  border: 1px solid #1a1714;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 4px 10px rgba(0, 0, 0, 0.35),
+    0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.cbtn-outline:hover {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 6px 14px rgba(0, 0, 0, 0.4),
+    0 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.cbtn-outline:active {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .cbtn::after {
