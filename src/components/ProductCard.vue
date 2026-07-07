@@ -1,19 +1,25 @@
 <template>
   <div class="w-full flex flex-col bg-white rounded-2xl p-4">
-    <img src="@/assets/piston.jpg" alt="" class="w-full h-400px object-cover rounded-2xl" />
-    <div class="flex flex-col">
-      <h2 class="text-black text-2xl font-bold my-2">پیس</h2>
-      <div class="flex items-center">
+    <img src="@/assets/piston.png" alt="" class="w-full px-10 py-5 object-cover rounded-2xl" />
+    <div class="flex flex-col gap-y-4">
+      <h2 class="text-black text-lg font-semibold my-2">
+        بوش و پیستون و گژن پین الدورا کد 87120620 مناسب برای پژو 405 بسته 4 عددی
+      </h2>
+      <div class="flex items-center" :class="discountPrice ? 'gap-x-3' : 'gap-x-1'">
         <span
-          class="text-2xl font-bold"
+          class="text-base font-bold"
           :class="discountPrice ? 'line-through text-[#929292]' : 'text-black'"
           >120000</span
         >
-        <div v-if="discountPrice" class="text-gray text-2xl font-bold">
+        <div v-if="discountPrice" class="text-base text-black font-bold space-x-1">
           <span>850000</span>
+          <span class="text-sm font-bold text-red-900">تومان</span>
         </div>
-        <span class="text-gray text-sm font-bold">تومان</span>
+        <span v-if="!discountPrice" class="text-sm font-bold text-red-900">تومان</span>
       </div>
+      <ButtonComponent>
+        <span class="text-xs">افزودن به سبد خرید</span>
+      </ButtonComponent>
     </div>
   </div>
 </template>
