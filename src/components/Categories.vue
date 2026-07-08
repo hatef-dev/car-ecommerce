@@ -120,10 +120,7 @@ const activeProducts = computed(() =>
       <!-- محتوای اصلی: فقط اسلایدر دسته‌ی فعال -->
       <div class="flex-1 min-w-0">
         <section :key="activeCategory.link">
-          <h2 class="text-black font-semibold text-2xl sm:text-3xl mb-3 sm:mb-4">
-            {{ activeCategory.title }}
-          </h2>
-          <ProductSwiper :slideshow="4" :products="activeProducts" />
+          <ProductSwiper :slideshow="4" :products="activeProducts" :title="activeCategory.title" />
         </section>
       </div>
     </div>

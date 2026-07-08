@@ -3,16 +3,17 @@
     <!-- Hidden canvas for rendering particles -->
     <canvas ref="canvas" class="confetti-canvas"></canvas>
 
-    <!-- The actual button -->
-    <button
+    <!-- The actual router-link -->
+    <router-link
       ref="button"
       class="cbtn cbtn-dark border border-white"
       :data-colors="colors"
       :class="`cbtn-${type}`"
+      :to="to"
       @click="burst"
     >
       <slot></slot>
-    </button>
+    </router-link>
   </div>
 </template>
 
@@ -28,6 +29,10 @@ export default {
     type: {
       type: String,
       default: "dark", // "dark" | "outline"
+    },
+    to: {
+      type: String,
+      default: "/",
     },
   },
 

@@ -467,7 +467,65 @@ export default {
             },
           ],
         },
-
+        {
+          title: "دسته‌بندی قطعات",
+          link: "/categories",
+          children: [
+            {
+              title: "قطعات موتوری",
+              link: "/categories/engine",
+              children: [
+                { title: "سرسیلندر", link: "/categories/engine/cylinder-head" },
+                { title: "میل‌لنگ", link: "/categories/engine/crankshaft" },
+                { title: "پیستون و رینگ موتور", link: "/categories/engine/piston" },
+                { title: "شاتون", link: "/categories/engine/connecting-rod" },
+                { title: "واشر سرسیلندر", link: "/categories/engine/cylinder-gasket" },
+                { title: "واتر پمپ", link: "/categories/engine/water-pump" },
+                { title: "سایر قطعات موتوری", link: "/categories/engine/others" },
+              ],
+            },
+            {
+              title: "سیستم تعلیق و فرمان",
+              link: "/categories/suspension",
+              children: [
+                { title: "پمپ هیدرولیک فرمان", link: "/categories/suspension/steering-pump" },
+                { title: "کابل حلزونی فرمان", link: "/categories/suspension/spiral-cable" },
+                { title: "سایر قطعات تعلیق", link: "/categories/suspension/others" },
+              ],
+            },
+            {
+              title: "سیستم برقی و سنسورها",
+              link: "/categories/electrical",
+              children: [
+                { title: "استارت کامل", link: "/categories/electrical/starter" },
+                { title: "دینام کامل", link: "/categories/electrical/alternator" },
+                { title: "سنسور اکسیژن", link: "/categories/electrical/oxygen-sensor" },
+                { title: "سنسور میل سوپاپ و مپ", link: "/categories/electrical/sensors" },
+                { title: "شمع موتور", link: "/categories/electrical/spark-plug" },
+                { title: "سایر قطعات برقی", link: "/categories/electrical/others" },
+              ],
+            },
+            {
+              title: "گیربکس و کلاچ",
+              link: "/categories/transmission",
+              children: [
+                { title: "بلبرینگ کلاچ", link: "/categories/transmission/clutch-bearing" },
+                { title: "پمپ کلاچ", link: "/categories/transmission/clutch-pump" },
+                { title: "سایر قطعات گیربکس", link: "/categories/transmission/others" },
+              ],
+            },
+            {
+              title: "سیستم تهویه و کولر",
+              link: "/categories/cooling-heating",
+              children: [
+                { title: "کمپرسور کولر", link: "/categories/cooling-heating/compressor" },
+                { title: "مقاومت بخاری", link: "/categories/cooling-heating/resistor" },
+                { title: "هوزینگ و ترموستات", link: "/categories/cooling-heating/thermostat" },
+                { title: "سایر قطعات تهویه", link: "/categories/cooling-heating/others" },
+              ],
+            },
+          ],
+        },
         {
           title: "برندها",
           link: "/brands",

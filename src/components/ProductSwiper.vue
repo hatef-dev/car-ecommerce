@@ -1,14 +1,17 @@
 <template>
   <div class="relative">
-    <div class="flex justify-end mb-4">
+    <div class="flex items-center mb-4" :class="title ? 'justify-between' : 'justify-end'">
+      <h2 v-if="title" class="text-black font-semibold text-2xl sm:text-3xl">
+        {{ title }}
+      </h2>
       <div class="swiper-button-prev-next flex justify-between items-center gap-x-4 py-4">
-        <div @click="prevSlide" class="group mx-10 cursor-pointer">
+        <div :class="prevClass" class="group mx-2">
           <div
-            class="w-12 h-12 rounded-full bg-[#2a2a2a] transition-all duration-300 ease-in-out px-3 group-hover:bg-yellow-500 flex items-center justify-center"
+            class="w-12 h-12 flex justify-center text-white items-center rounded-full bg-[#2a2a2a] transition-all duration-300 ease-in-out px-3 group-hover:bg-yellow-500"
           >
             <svg
-              width="10"
-              height="10"
+              width="20"
+              height="20"
               class="rotate-90"
               data-name="1-Arrow Up"
               xmlns="http://www.w3.org/2000/svg"
@@ -22,13 +25,13 @@
           </div>
         </div>
 
-        <div @click="nextSlide" class="group cursor-pointer">
+        <div :class="nextClass" class="group">
           <div
-            class="w-12 h-12 rounded-full bg-[#2a2a2a] transition-all duration-300 ease-in-out px-3 group-hover:bg-yellow-500 flex items-center justify-center"
+            class="w-12 h-12 flex text-white justify-center items-center rounded-full bg-[#2a2a2a] transition-all duration-300 ease-in-out px-3 group-hover:bg-yellow-500"
           >
             <svg
-              width="10"
-              height="10"
+              width="20"
+              height="20"
               class="-rotate-90"
               data-name="1-Arrow Up"
               xmlns="http://www.w3.org/2000/svg"
@@ -43,51 +46,45 @@
         </div>
       </div>
     </div>
-
     <swiper
+      class=""
       :slides-per-view="1"
       :space-between="50"
       :centered-slides="false"
-      :loop="true"
+      :loop="false"
       :breakpoints="{
-        640: { slidesPerView: 1, spaceBetween: 20 },
-        768: { slidesPerView: 3, spaceBetween: 30 },
-        1024: { slidesPerView: slideshow, spaceBetween: 20 },
+        480: { slidesPerView: 1.5, spaceBetween: 16 },
+        640: { slidesPerView: 2, spaceBetween: 16 },
+        768: { slidesPerView: 3, spaceBetween: 20 },
+        1024: { slidesPerView: 4, spaceBetween: 20 },
+        1280: { slidesPerView: slideshow, spaceBetween: 24 },
       }"
-      @swiper="onSwiperInit"
+      :modules="modules"
+      :navigation="navigation"
     >
-      <swiper-slide class="text-white">
-        <ProductCard discountPrice="1" />
-      </swiper-slide>
-      <swiper-slide class="text-white">
-        <ProductCard discountPrice="1" />
-      </swiper-slide>
-      <swiper-slide class="text-white">
-        <ProductCard discountPrice="1" />
-      </swiper-slide>
-      <swiper-slide class="text-white">
-        <ProductCard />
-      </swiper-slide>
-      <swiper-slide class="text-white">
-        <ProductCard />
-      </swiper-slide>
-      <swiper-slide class="text-white">
-        <ProductCard />
-      </swiper-slide>
-      <swiper-slide class="text-white">
-        <ProductCard />
+      <swiper-slide v-for="item in displayProducts" :key="item.link || item.id" class="text-white">
+        <ProductCard
+          :title="item.title"
+          :image="item.image"
+          :price="item.price"
+          :discountPrice="item.discountPrice"
+          :link="item.link"
+        />
       </swiper-slide>
     </swiper>
   </div>
 </template>
-
 <script>
 import ProductCard from "./ProductCard.vue";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation } from "swiper/modules";
 
 import "swiper/css";
+import "swiper/css/navigation";
 import "@/assets/swiperProduct.css";
+
+let instanceCounter = 0;
 
 export default {
   name: "ProductSwiper",
@@ -97,38 +94,50 @@ export default {
       type: Number,
       default: 5,
     },
+    products: {
+      type: Array,
+      default: () => [],
+    },
+    title: {
+      type: String,
+      default: "",
+    },
   },
 
   data() {
+    instanceCounter += 1;
+    const uid = `swiper-${instanceCounter}`;
     return {
-      swiperInstance: null, // نمونه اختصاصی همین اسلایدر اینجا ذخیره می‌شود
+      modules: [Navigation],
+      uid,
     };
   },
 
-  methods: {
-    // ذخیره کردن نمونه اسلایدر هنگام لود شدن
-    onSwiperInit(swiper) {
-      this.swiperInstance = swiper;
+  computed: {
+    prevClass() {
+      return `swiper-button-prev-${this.uid}`;
     },
-    nextSlide() {
-      if (this.swiperInstance) {
-        // برای نسخه‌های جدید سوئیپر در حالت Loop
-        if (typeof this.swiperInstance.slideNextLoop === "function") {
-          this.swiperInstance.slideNextLoop();
-        } else {
-          this.swiperInstance.slideNext();
-        }
-      }
+    nextClass() {
+      return `swiper-button-next-${this.uid}`;
     },
-    prevSlide() {
-      if (this.swiperInstance) {
-        // برای نسخه‌های جدید سوئیپر در حالت Loop
-        if (typeof this.swiperInstance.slidePrevLoop === "function") {
-          this.swiperInstance.slidePrevLoop();
-        } else {
-          this.swiperInstance.slidePrev();
-        }
-      }
+    navigation() {
+      return {
+        nextEl: `.${this.nextClass}`,
+        prevEl: `.${this.prevClass}`,
+      };
+    },
+    // اگه products از بیرون پاس داده نشه، همون حالت قبلی (۷ کارت نمونه) نمایش داده می‌شه
+    displayProducts() {
+      if (this.products && this.products.length) return this.products;
+      return [
+        { id: 1, discountPrice: "100000" },
+        { id: 2, discountPrice: "1" },
+        { id: 3, discountPrice: "1" },
+        { id: 4 },
+        { id: 5 },
+        { id: 6 },
+        { id: 7 },
+      ];
     },
   },
 };
