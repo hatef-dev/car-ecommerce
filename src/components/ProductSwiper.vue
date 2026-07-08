@@ -2,9 +2,9 @@
   <div class="relative">
     <div class="flex justify-end mb-4">
       <div class="swiper-button-prev-next flex justify-between items-center gap-x-4 py-4">
-        <div class="swiper-button-prev group mx-10">
+        <div @click="prevSlide" class="group mx-10 cursor-pointer">
           <div
-            class="w-12 h-12 rounded-full bg-[#2a2a2a] transition-all duration-300 ease-in-out px-3 group-hover:bg-yellow-500"
+            class="w-12 h-12 rounded-full bg-[#2a2a2a] transition-all duration-300 ease-in-out px-3 group-hover:bg-yellow-500 flex items-center justify-center"
           >
             <svg
               width="10"
@@ -22,9 +22,9 @@
           </div>
         </div>
 
-        <div class="swiper-button-next group">
+        <div @click="nextSlide" class="group cursor-pointer">
           <div
-            class="w-12 h-12 rounded-full bg-[#2a2a2a] transition-all duration-300 ease-in-out px-3 group-hover:bg-yellow-500"
+            class="w-12 h-12 rounded-full bg-[#2a2a2a] transition-all duration-300 ease-in-out px-3 group-hover:bg-yellow-500 flex items-center justify-center"
           >
             <svg
               width="10"
@@ -43,8 +43,8 @@
         </div>
       </div>
     </div>
+
     <swiper
-      class=""
       :slides-per-view="1"
       :space-between="50"
       :centered-slides="false"
@@ -54,8 +54,7 @@
         768: { slidesPerView: 3, spaceBetween: 30 },
         1024: { slidesPerView: slideshow, spaceBetween: 20 },
       }"
-      :modules="modules"
-      :navigation="navigation"
+      @swiper="onSwiperInit"
     >
       <swiper-slide class="text-white">
         <ProductCard discountPrice="1" />
@@ -81,14 +80,13 @@
     </swiper>
   </div>
 </template>
+
 <script>
 import ProductCard from "./ProductCard.vue";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/navigation";
 import "@/assets/swiperProduct.css";
 
 export default {
@@ -103,16 +101,34 @@ export default {
 
   data() {
     return {
-      modules: [Navigation],
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
+      swiperInstance: null, // نمونه اختصاصی همین اسلایدر اینجا ذخیره می‌شود
     };
   },
-  computed: {
-    paddingYClass() {
-      return `py-[${this.paddingY}]`;
+
+  methods: {
+    // ذخیره کردن نمونه اسلایدر هنگام لود شدن
+    onSwiperInit(swiper) {
+      this.swiperInstance = swiper;
+    },
+    nextSlide() {
+      if (this.swiperInstance) {
+        // برای نسخه‌های جدید سوئیپر در حالت Loop
+        if (typeof this.swiperInstance.slideNextLoop === "function") {
+          this.swiperInstance.slideNextLoop();
+        } else {
+          this.swiperInstance.slideNext();
+        }
+      }
+    },
+    prevSlide() {
+      if (this.swiperInstance) {
+        // برای نسخه‌های جدید سوئیپر در حالت Loop
+        if (typeof this.swiperInstance.slidePrevLoop === "function") {
+          this.swiperInstance.slidePrevLoop();
+        } else {
+          this.swiperInstance.slidePrev();
+        }
+      }
     },
   },
 };

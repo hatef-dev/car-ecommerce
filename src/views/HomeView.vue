@@ -168,6 +168,7 @@
         <ProductSwiper :slideshow="5"></ProductSwiper>
       </div>
     </div>
+    <Categories></Categories>
   </div>
 </template>
 <script>
@@ -177,6 +178,7 @@ import { WrenchScrewdriverIcon } from "@heroicons/vue/24/outline";
 import { ArrowLeftIcon } from "@heroicons/vue/24/outline";
 import { ArrowUpLeftIcon } from "@heroicons/vue/24/outline";
 import ProductSwiper from "@/components/ProductSwiper.vue";
+import Categories from "@/components/Categories.vue";
 
 export default {
   name: "HomeView",
@@ -187,6 +189,7 @@ export default {
     ArrowLeftIcon,
     ArrowUpLeftIcon,
     ProductSwiper,
+    Categories,
   },
 };
 </script>
