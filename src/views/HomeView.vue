@@ -158,14 +158,14 @@
     </div>
     <div class="py-20 bg-black relative">
       <div class="container flex flex-col gap-y-3">
-        <h2 class="text-white font-semibold text-4xl">قطعات پر تقاضا</h2>
-        <p class="w-2xl text-[#848484] text-lg">
+        <h2 class="text-white font-semibold text-2xl sm:text-3xl md:text-4xl">قطعات پر تقاضا</h2>
+        <p class="w-full max-w-xl md:max-w-2xl text-[#848484] text-base md:text-lg">
           قطعه یدکی مناسب خودروی خود را سریع‌تر<span class="text-white">
             پیدا کنید؛ با دسته‌بندی‌های منظم و کاربردی که برای جست‌وجویی آسان</span
           >
           طراحی شده‌اند
         </p>
-        <ProductSwiper></ProductSwiper>
+        <ProductSwiper :slideshow="5"></ProductSwiper>
       </div>
     </div>
   </div>

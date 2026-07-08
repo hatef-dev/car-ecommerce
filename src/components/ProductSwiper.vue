@@ -52,7 +52,7 @@
       :breakpoints="{
         640: { slidesPerView: 1, spaceBetween: 20 },
         768: { slidesPerView: 3, spaceBetween: 30 },
-        1024: { slidesPerView: 5, spaceBetween: 20 },
+        1024: { slidesPerView: slideshow, spaceBetween: 20 },
       }"
       :modules="modules"
       :navigation="navigation"
@@ -95,15 +95,12 @@ export default {
   name: "ProductSwiper",
   components: { Swiper, SwiperSlide, ProductCard },
   props: {
-    border: {
-      type: Boolean,
-      default: true,
-    },
-    paddingY: {
-      type: String,
-      default: "0px",
+    slideshow: {
+      type: Number,
+      default: 5,
     },
   },
+
   data() {
     return {
       modules: [Navigation],
