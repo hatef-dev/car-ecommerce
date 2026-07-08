@@ -7,11 +7,11 @@
   user-select: none !important;
   -webkit-user-select: none !important;
   -moz-user-select: none !important;
-  padding: 60px 0;
+  /* padding: 60px 0; */
 }
 .swiper-button-prev-next {
   display: flex;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .swiper-button-prev-next .swiper-button-prev,

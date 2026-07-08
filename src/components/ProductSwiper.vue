@@ -44,7 +44,7 @@
       </div>
     </div>
     <swiper
-      class="border-y border-white/20"
+      class=""
       :slides-per-view="1"
       :space-between="50"
       :centered-slides="false"
@@ -57,25 +57,25 @@
       :modules="modules"
       :navigation="navigation"
     >
-      <swiper-slide class="text-white py-8">
+      <swiper-slide class="text-white">
         <ProductCard discountPrice="1" />
       </swiper-slide>
-      <swiper-slide class="text-white py-8">
+      <swiper-slide class="text-white">
         <ProductCard discountPrice="1" />
       </swiper-slide>
-      <swiper-slide class="text-white py-8">
+      <swiper-slide class="text-white">
         <ProductCard discountPrice="1" />
       </swiper-slide>
-      <swiper-slide class="text-white py-8">
+      <swiper-slide class="text-white">
         <ProductCard />
       </swiper-slide>
-      <swiper-slide class="text-white py-8">
+      <swiper-slide class="text-white">
         <ProductCard />
       </swiper-slide>
-      <swiper-slide class="text-white py-8">
+      <swiper-slide class="text-white">
         <ProductCard />
       </swiper-slide>
-      <swiper-slide class="text-white py-8">
+      <swiper-slide class="text-white">
         <ProductCard />
       </swiper-slide>
     </swiper>
@@ -94,6 +94,16 @@ import "@/assets/swiperProduct.css";
 export default {
   name: "ProductSwiper",
   components: { Swiper, SwiperSlide, ProductCard },
+  props: {
+    border: {
+      type: Boolean,
+      default: true,
+    },
+    paddingY: {
+      type: String,
+      default: "0px",
+    },
+  },
   data() {
     return {
       modules: [Navigation],
@@ -102,6 +112,11 @@ export default {
         prevEl: ".swiper-button-prev",
       },
     };
+  },
+  computed: {
+    paddingYClass() {
+      return `py-[${this.paddingY}]`;
+    },
   },
 };
 </script>
