@@ -168,7 +168,7 @@
         <ProductSwiper :slideshow="5"></ProductSwiper>
       </div>
     </div>
-    <Categories></Categories>
+    <Categories class="my-10"></Categories>
   </div>
 </template>
 <script>

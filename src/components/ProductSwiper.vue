@@ -1,10 +1,10 @@
 <template>
   <div class="relative">
-    <div class="flex items-center mb-4" :class="title ? 'justify-between' : 'justify-end'">
+    <div class="flex items-center my-7" :class="title ? 'justify-between' : 'justify-end'">
       <h2 v-if="title" class="text-black font-semibold text-2xl sm:text-3xl">
         {{ title }}
       </h2>
-      <div class="swiper-button-prev-next flex justify-between items-center gap-x-4 py-4">
+      <div class="swiper-button-prev-next flex justify-between items-center gap-x-4">
         <div :class="prevClass" class="group mx-2">
           <div
             class="w-12 h-12 flex justify-center text-white items-center rounded-full bg-[#2a2a2a] transition-all duration-300 ease-in-out px-3 group-hover:bg-yellow-500"
