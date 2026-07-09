@@ -169,6 +169,7 @@
       </div>
     </div>
     <Categories class="my-10"></Categories>
+    <DiscountBanner class="my-10"></DiscountBanner>
   </div>
 </template>
 <script>
@@ -179,6 +180,7 @@ import { ArrowLeftIcon } from "@heroicons/vue/24/outline";
 import { ArrowUpLeftIcon } from "@heroicons/vue/24/outline";
 import ProductSwiper from "@/components/ProductSwiper.vue";
 import Categories from "@/components/Categories.vue";
+import DiscountBanner from "@/components/DiscountBanner.vue";
 
 export default {
   name: "HomeView",
@@ -190,6 +192,7 @@ export default {
     ArrowUpLeftIcon,
     ProductSwiper,
     Categories,
+    DiscountBanner,
   },
 };
 </script>
