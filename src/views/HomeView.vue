@@ -178,6 +178,9 @@
         <BrandsLogos />
       </div>
     </div>
+    <div>
+      <BannerSite />
+    </div>
   </div>
 </template>
 <script>
@@ -190,6 +193,7 @@ import ProductSwiper from "@/components/ProductSwiper.vue";
 import Categories from "@/components/Categories.vue";
 import DiscountBanner from "@/components/DiscountBanner.vue";
 import BrandsLogos from "@/components/BrandsLogos.vue";
+import BannerSite from "@/components/BannerSite.vue";
 
 export default {
   name: "HomeView",
@@ -203,6 +207,7 @@ export default {
     Categories,
     DiscountBanner,
     BrandsLogos,
+    BannerSite,
   },
 };
 </script>
