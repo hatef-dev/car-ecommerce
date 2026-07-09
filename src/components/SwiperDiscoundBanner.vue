@@ -33,6 +33,7 @@ import DiscountProductForBanner from "./DiscountProductForBanner.vue";
 import "swiper/css";
 
 import "swiper/css/pagination";
+import "@/assets/swiperDiscount.css";
 
 // import required modules
 import { Pagination } from "swiper/modules";
