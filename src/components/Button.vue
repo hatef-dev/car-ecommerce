@@ -28,7 +28,7 @@ export default {
     },
     type: {
       type: String,
-      default: "dark", // "dark" | "outline"
+      default: "dark", // "dark" | "outline" | "red"
     },
     to: {
       type: String,
@@ -406,6 +406,32 @@ export default {
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.6) inset,
     0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.cbtn-red {
+  background: linear-gradient(180deg, #e53946, #b91c2c);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.25) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.35) inset,
+    0 6px 14px rgba(185, 28, 44, 0.45),
+    0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.cbtn-red:hover {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.3) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.35) inset,
+    0 8px 18px rgba(185, 28, 44, 0.55),
+    0 3px 5px rgba(0, 0, 0, 0.45);
+}
+
+.cbtn-red:active {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.2) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.25) inset,
+    0 2px 5px rgba(0, 0, 0, 0.35);
 }
 
 .cbtn::after {

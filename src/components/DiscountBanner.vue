@@ -4,16 +4,19 @@
       <h1 class="text-white text-4xl font-bold">پیشنهادهای شگفت‌انگیز هفته</h1>
       <DiscountTimeLeft v-if="endTime" :end-time="endTime" @expired="onExpired" />
     </div>
+
+    <SwiperDiscoundBanner />
   </div>
 </template>
 
 <script>
 import DiscountTimeLeft from "./DiscountTimeLeft.vue";
-
+import SwiperDiscoundBanner from "./SwiperDiscoundBanner.vue";
 export default {
   name: "DiscountBanner",
   components: {
     DiscountTimeLeft,
+    SwiperDiscoundBanner,
   },
   data() {
     return {

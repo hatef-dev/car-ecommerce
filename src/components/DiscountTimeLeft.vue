@@ -3,9 +3,9 @@
     <div
       v-for="unit in units"
       :key="unit.label"
-      class="bg-yellow-300 rounded-full w-12 h-12 flex justify-center items-center"
+      class="bg-yellow-300 rounded-full w-16 h-16 flex justify-center items-center font-semibold"
     >
-      <span class="text-black">{{ unit.value }}</span>
+      <span class="text-black text-2xl">{{ unit.value }}</span>
     </div>
   </div>
 </template>
