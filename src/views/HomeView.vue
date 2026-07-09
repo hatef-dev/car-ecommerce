@@ -169,7 +169,15 @@
       </div>
     </div>
     <Categories class="my-10"></Categories>
-    <DiscountBanner class="my-10"></DiscountBanner>
+    <DiscountBanner class="my-10 py-10"></DiscountBanner>
+    <div class="my-10 container flex flex-col gap-y-10">
+      <div class="flex items-center justify-center">
+        <h3 class="text-5xl text-black font-semibold">برندهای منتخب ما</h3>
+      </div>
+      <div class="grid grid-cols-5 gap-4 items-center justify-center">
+        <BrandsLogos />
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -181,6 +189,7 @@ import { ArrowUpLeftIcon } from "@heroicons/vue/24/outline";
 import ProductSwiper from "@/components/ProductSwiper.vue";
 import Categories from "@/components/Categories.vue";
 import DiscountBanner from "@/components/DiscountBanner.vue";
+import BrandsLogos from "@/components/BrandsLogos.vue";
 
 export default {
   name: "HomeView",
@@ -193,6 +202,7 @@ export default {
     ProductSwiper,
     Categories,
     DiscountBanner,
+    BrandsLogos,
   },
 };
 </script>
