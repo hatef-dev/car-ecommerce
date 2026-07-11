@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white p-6 rounded-2xl">
+  <div class="bg-white p-6 rounded-2xl hover:rotate-6 transition-transform duration-300">
     <div class="flex gap-x-10">
       <img src="@/assets/char.jpg" alt="char" class="w-24 h-24 rounded-full" />
       <div class="flex flex-col gap-y-6">

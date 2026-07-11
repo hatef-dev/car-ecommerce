@@ -174,7 +174,7 @@
       <div class="flex items-center justify-center">
         <h3 class="text-5xl text-black font-semibold">برندهای منتخب ما</h3>
       </div>
-      <div class="grid grid-cols-5 gap-4 items-center justify-center">
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 items-center justify-center">
         <BrandsLogos />
       </div>
     </div>
@@ -182,7 +182,7 @@
       <BannerSite />
     </div>
 
-    <Articles />
+    <Articles class="mt-20" />
   </div>
 </template>
 <script>
