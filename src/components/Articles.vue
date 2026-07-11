@@ -5,7 +5,7 @@
         <h1 class="text-3xl sm:text-4xl w-full sm:w-full md:w-4/5 font-semibold">
           با آخرین مقالات و مطالب تخصصی وبلاگ ما همراه باشید
         </h1>
-        <p class="text-lg sm:text-base font-medium w-full sm:w-full md:w-3/5">
+        <p class="text-lg sm:text-base font-medium w-full sm:w-full md:w-4/5">
           با جدیدترین مطالب، راهنماها و نکات تخصصی دنیای خودرو همراه باشید. در وبلاگ ما، اطلاعات
           کاربردی درباره نگهداری خودرو، معرفی قطعات یدکی، بررسی محصولات و جدیدترین اخبار صنعت خودرو
           را با شما به اشتراک می‌گذاریم تا همیشه انتخابی آگاهانه‌تر و مطمئن‌تر داشته باشید.
