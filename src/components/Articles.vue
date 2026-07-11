@@ -12,19 +12,19 @@
         </p>
       </div>
       <div>
-        <CommentsList />
+        <ArticleList />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import CommentsList from "@/components/CommentsList.vue";
+import ArticleList from "@/components/ArticleList.vue";
 
 export default {
   name: "Comments",
   components: {
-    CommentsList,
+    ArticleList,
   },
 };
 </script>
