@@ -181,8 +181,8 @@
     <div>
       <BannerSite />
     </div>
-
     <Articles class="mt-20" />
+    <Footer />
   </div>
 </template>
 <script>
@@ -193,6 +193,7 @@ import { ArrowLeftIcon } from "@heroicons/vue/24/outline";
 import { ArrowUpLeftIcon } from "@heroicons/vue/24/outline";
 import ProductSwiper from "@/components/ProductSwiper.vue";
 import Categories from "@/components/Categories.vue";
+import Footer from "@/components/Footer.vue";
 import DiscountBanner from "@/components/DiscountBanner.vue";
 import BrandsLogos from "@/components/BrandsLogos.vue";
 import BannerSite from "@/components/BannerSite.vue";
@@ -212,6 +213,7 @@ export default {
     BrandsLogos,
     BannerSite,
     Articles,
+    Footer,
   },
 };
 </script>
