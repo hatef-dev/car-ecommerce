@@ -181,6 +181,8 @@
     <div>
       <BannerSite />
     </div>
+
+    <Comments />
   </div>
 </template>
 <script>
@@ -194,6 +196,7 @@ import Categories from "@/components/Categories.vue";
 import DiscountBanner from "@/components/DiscountBanner.vue";
 import BrandsLogos from "@/components/BrandsLogos.vue";
 import BannerSite from "@/components/BannerSite.vue";
+import Comments from "@/components/Comments.vue";
 
 export default {
   name: "HomeView",
@@ -208,6 +211,7 @@ export default {
     DiscountBanner,
     BrandsLogos,
     BannerSite,
+    Comments,
   },
 };
 </script>
