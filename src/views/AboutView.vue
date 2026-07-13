@@ -1,22 +1,45 @@
 <template>
   <div class="flex flex-col gap-y-2">
     <Header />
-    <div class="container py-10">
-      <h1 class="text-3xl font-bold mb-4">About Us</h1>
-      <p class="text-gray-600">
-        This is the about page. Content will be added here.
-      </p>
-    </div>
+
+    <AboutHero />
+    <AboutStory />
+    <WhyChooseUs />
+    <AboutStats />
+    <AboutValues />
+    <TeamSection />
+    <TimelineSection />
+    <AboutCTA />
+
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+import AboutHero from "@/components/about/AboutHero.vue";
+import AboutStory from "@/components/about/AboutStory.vue";
+import WhyChooseUs from "@/components/about/WhyChooseUs.vue";
+import AboutStats from "@/components/about/AboutStats.vue";
+import AboutValues from "@/components/about/AboutValues.vue";
+import TeamSection from "@/components/about/TeamSection.vue";
+import TimelineSection from "@/components/about/TimelineSection.vue";
+import AboutCTA from "@/components/about/AboutCTA.vue";
 
 export default {
   name: "AboutView",
   components: {
     Header,
+    Footer,
+    AboutHero,
+    AboutStory,
+    WhyChooseUs,
+    AboutStats,
+    AboutValues,
+    TeamSection,
+    TimelineSection,
+    AboutCTA,
   },
 };
 </script>
