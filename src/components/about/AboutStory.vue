@@ -1,16 +1,16 @@
 <template>
   <section class="py-16">
-    <div class="container px-4 sm:px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+    <div class="container px-10 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
         <Revealonscroll>
-          <div class="relative">
+          <div class="relative flex justify-center items-center">
             <img
               src="@/assets/carEngine.webp"
               alt="Company Story"
-              class="w-full rounded-2xl shadow-lg"
+              class="w-[300px] rounded-2xl shadow-lg"
             />
             <div
-              class="absolute -bottom-6 -right-6 bg-yellow-400 text-black px-6 py-4 rounded-2xl font-bold shadow-lg"
+              class="absolute -bottom-6 right-36 bg-yellow-400 text-black px-6 py-4 rounded-2xl font-bold shadow-lg"
             >
               از سال ۱۳۹۲
             </div>
