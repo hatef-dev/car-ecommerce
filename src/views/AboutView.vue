@@ -12,6 +12,7 @@
     <AboutCTA />
 
     <Footer />
+    <test />
   </div>
 </template>
 

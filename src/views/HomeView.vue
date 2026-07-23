@@ -181,7 +181,7 @@
     <div>
       <BannerSite />
     </div>
-    <Articles class="mt-20" />
+    <Articles class="my-48" />
     <Footer />
   </div>
 </template>
